@@ -8,7 +8,6 @@ from django.shortcuts import get_object_or_404, redirect, render
 from blog.forms import CommentForm
 from .models import Post
 
-
 def index(request):
     posts = Post.objects.filter(published_at__lte=timezone.now())
 

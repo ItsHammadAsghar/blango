@@ -2,11 +2,14 @@ argon2-cffi==21.3.0
 argon2-cffi-bindings==21.2.0
 asgiref==3.5.2
 cffi==1.15.1
+confusable-homoglyphs==3.2.0
 crispy-bootstrap5==0.6
 dj-database-url==0.5.0
 Django==4.0.6
 django-configurations==2.3.2
 django-crispy-forms==1.14.0
+django-debug-toolbar==3.5.0
+django-registration==3.3
 pycparser==2.21
 six==1.16.0
 sqlparse==0.4.2

@@ -1,8 +1,9 @@
 from rest_framework import mixins
 from rest_framework import generics
+from blango_auth.models import User
 
 from blog.models import Post
-from blog.api.serializers import PostSerializer
+from blog.api.serializers import PostSerializer, UserSerializer
 from blog.api.permissions import AuthorModifyOrReadOnly, IsAdminUserForObject
 
 
@@ -35,3 +36,9 @@ class PostDetail(
 
     def delete(self, request, *args, **kwargs):
         return self.destroy(request, *args, **kwargs)
+
+    
+class UserDetail(generics.RetrieveAPIView):
+    lookup_field = "email"
+    queryset = User.objects.all()
+    serializer_class = UserSerializer

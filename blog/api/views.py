@@ -3,6 +3,7 @@ from rest_framework import generics
 
 from blog.models import Post
 from blog.api.serializers import PostSerializer
+from blog.api.permissions import AuthorModifyOrReadOnly, IsAdminUserForObject
 
 
 class PostList(mixins.ListModelMixin, mixins.CreateModelMixin, generics.GenericAPIView):
@@ -22,6 +23,7 @@ class PostDetail(
     mixins.DestroyModelMixin,
     generics.GenericAPIView,
 ):
+    permission_classes = [AuthorModifyOrReadOnly | IsAdminUserForObject]
     queryset = Post.objects.all()
     serializer_class = PostSerializer
 
